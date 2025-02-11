@@ -1,4 +1,4 @@
-let marks = 85;
+let marks = 55;
 
 if (marks >= 90) {
     document.write("Grade: A+");
