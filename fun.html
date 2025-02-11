@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    function sayHello(name, age) {
+        document.write(name + " is " + age + " Hello Everyone");
+    }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        sayHello('Akanksha', 25);
+        function person(firstName, lastName, age, eye) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.eyeColor = eye;
+        }
+        const myFather = new person('Vishram', 'Chougule', 50, 'black');
+        document.write(myFather.firstName + " is " + myFather.age + " years old.");
+        const myMother = new person('Sushama', 'Chougule', 48, 'green');
+        document.write(myMother.firstName + " is " + myMother.age + " years old.");
+        const mySister = new person('Lily', 'Doe', 20, 'brown');
+        document.write(mySister.firstName + " is " + mySister.age + " years old.");
+    </script>
+</body>
+</html>
