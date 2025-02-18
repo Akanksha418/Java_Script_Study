@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Hall Ticket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            border: 2px solid black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Hall Ticket Generator</h2>
+    <form id="hallTicketForm">
+        <label>Student Name:</label>
+        <input type="text" id="name" required><br><br>
+        <label>Roll Number:</label>
+        <input type="text" id="rollNumber" required><br><br>
+        <label>Exam Center:</label>
+        <input type="text" id="examCenter" required><br><br>
+        <button type="button" id="generateBtn">Generate Hall Ticket</button>
+    </form>
+    
+    <div id="hallTicket" class="container hidden">
+        <h2>Hall Ticket</h2>
+        <img src>
+        <p><strong>Name:</strong> <span id="htName"></span></p>
+        <p><strong>Roll Number:</strong> <span id="htRollNumber"></span></p>
+        <p><strong>Exam Center:</strong> <span id="htExamCenter"></span></p>
+        <button id="printBtn">Print</button>
+    </div>
+
+    <script>
+        document.getElementById("generateBtn").addEventListener("click", function() {
+            const name = document.getElementById('name').value;
+            const rollNumber = document.getElementById('rollNumber').value;
+            const examCenter = document.getElementById('examCenter').value;
+            
+            if (name && rollNumber && examCenter) {
+                document.getElementById('htName').textContent = name;
+                document.getElementById('htRollNumber').textContent = rollNumber;
+                document.getElementById('htExamCenter').textContent = examCenter;
+                
+                document.getElementById('hallTicket').classList.remove('hidden');
+            } else {
+                alert("Please fill all fields");
+            }
+        });
+        
+        document.getElementById("printBtn").addEventListener("click", function() {
+            window.print();
+        });
+    </script>
+</body>
+</html>
