@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple 3-Day Weather Forecast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 20px;
+            margin: 0;
+        }
+        .forecast {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        .forecast-days {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .day-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+        .day-card img {
+            width: 40px;
+            height: 40px;
+        }
+        .day-temperature {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+        .day-description {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="forecast">
+        <h2>3-Day Weather Forecast</h2>
+        <div class="forecast-days" id="forecastContainer">
+            <!-- JavaScript will dynamically add cards here -->
+        </div>
+    </div>
+
+    <script>
+        // Sample weather data
+        const forecastData = [
+            { date: "Mon, May 25", icon: "1.jpg", temperature: "25°C", description: "Partly Cloudy" },
+            { date: "Tue, May 26", icon: "2.png", temperature: "28°C", description: "Sunny" },
+            { date: "Wed, May 27", icon: "3.webp", temperature: "22°C", description: "Rainy" }
+        ];
+
+        // Function to display the forecast
+        function displayForecast() {
+            const forecastContainer = document.getElementById('forecastContainer');
+            forecastContainer.innerHTML = forecastData.map(day => `
+                <div class="day-card">
+                    <div class="day-date">${day.date}</div>
+                    <img src="${day.icon}" alt="Weather Icon">
+                    <div class="day-temperature">${day.temperature}</div>
+                    <div class="day-description">${day.description}</div>
+                </div>
+            `).join('');
+        }
+
+        // Call the function when the page loads
+        window.onload = displayForecast;
+    </script>
+</body>
+</html>
