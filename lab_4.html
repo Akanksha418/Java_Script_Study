@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .search-box {
+            margin-bottom: 20px;
+        }
+        #city-input {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #search-btn {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        .weather-info p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button id="search-btn">Search</button>
+        </div>
+        <div class="weather-info">
+            <p id="city-name"></p>
+            <p id="temperature"></p>
+            <p id="weather-description"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('search-btn').addEventListener('click', function() {
+            const city = document.getElementById('city-input').value;
+            console.log('City entered:', city);
+            // Additional code to fetch weather data will be added later
+        });
+    </script>
+</body>
+</html>
