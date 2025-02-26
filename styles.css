@@ -1,0 +1,32 @@
+/* Styling the weather info container */
+.weather-info {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+/* City name styling */
+#city-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+/* Temperature styling */
+#temperature {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Weather description styling */
+#weather-description {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
