@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data Based on Geolocation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #1f2937;
+        }
+        .weather-card {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .weather-card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Data for User Input Location</h1>
+    <label for="latitude">Latitude:</label>
+    <input type="number" id="latitude" placeholder="Enter latitude">
+    <label for="longitude">Longitude:</label>
+    <input type="number" id="longitude" placeholder="Enter longitude">
+    <button onclick="displayWeatherData()">Get Weather Data</button>
+
+    <div id="weather-container"></div>
+
+    <script>
+        // Task 2: Fetch Simulated Weather Data
+        function fetchWeatherData(latitude, longitude) {
+            const weatherConditions = ["Sunny", "Cloudy", "Rainy", "Snowy"];
+            const forecast = [];
+            const currentDate = new Date();
+
+            for (let i = 0; i < 3; i++) {
+                const day = currentDate.getDate();
+                const month = currentDate.getMonth() + 1;
+                const year = currentDate.getFullYear();
+
+                const temperature = (Math.random() * 45 - 10).toFixed(1);
+                const condition = weatherConditions[Math.floor(Math.random() * weatherConditions.length)];
+                const humidity = Math.floor(Math.random() * 100);
+
+                forecast.push({
+                    date: `${month}/${day}/${year}`,
+                    temperature,
+                    condition,
+                    humidity,
+                    latitude,
+                    longitude
+                });
+
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+
+            return forecast;
+        }
+
+        // Task 3 & 4: Call Function and Display Weather Data
+        function displayWeatherData() {
+            const latitude = parseFloat(document.getElementById('latitude').value);
+            const longitude = parseFloat(document.getElementById('longitude').value);
+            if (isNaN(latitude) || isNaN(longitude)) {
+                alert('Please enter valid latitude and longitude values.');
+                return;
+            }
+            const forecastData = fetchWeatherData(latitude, longitude);
+            const container = document.getElementById('weather-container');
+            container.innerHTML = '';
+
+            forecastData.forEach(data => {
+                const card = document.createElement('div');
+                card.className = 'weather-card';
+                card.innerHTML = `
+                    <p><strong>Date:</strong> ${data.date}</p>
+                    <p><strong>Temperature:</strong> ${data.temperature}°C</p>
+                    <p><strong>Condition:</strong> ${data.condition}</p>
+                    <p><strong>Humidity:</strong> ${data.humidity}%</p>
+                    <p><strong>Latitude:</strong> ${data.latitude}</p>
+                    <p><strong>Longitude:</strong> ${data.longitude}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
